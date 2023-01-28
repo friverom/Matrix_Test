@@ -153,8 +153,8 @@ public class Matrix_Test {
         //Dot product of vectors
       //  Matrix a=new Matrix(new double[][]{{1,2,3},{4,5,6},{7,8,9}});
       //Matrix b=a.transpose();  
-        Matrix a=new Matrix(new double[]{1,2,3});
-        Matrix b=new Matrix(new double[]{1,2,3});
+        Matrix a=new Matrix(new double[]{1,1,1});
+        Matrix b=new Matrix(new double[]{-1,-1,-1});
         System.out.println("Dot product of vectors");
         System.out.println("Matrix A");
         a.show();
@@ -164,6 +164,18 @@ public class Matrix_Test {
         Matrix c=a.dotMult(b);
         c.show();
         
+        //Angle between vectors
+        Matrix a1=new Matrix(new double[]{1,0,0});
+        Matrix b1=new Matrix(new double[]{0,1,0});
+        
+        double cos1=a1.dotMult(b1).getValue(1, 1)/(a1.getNorm()*b1.getNorm());
+        System.out.println("Cosine: "+cos1);
+        System.out.println("Angle: "+Math.acos(cos1)*180/Math.PI);
+        
+        //Vector cross product
+        Matrix cr=a1.crossMult(b1);
+        System.out.println("Cross Product ");
+        cr.show();
         
     }
     

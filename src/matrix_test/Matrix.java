@@ -348,6 +348,19 @@ final public class Matrix implements Serializable{
         return result;
     }
     
+    //Return the cross product of 2 vectors
+    public Matrix crossMult(Matrix a){
+        if(this.M!=3 || a.M!=3 || this.N!=1 || a.N!=1) throw new RuntimeException("Illegal vector sizes.");
+        
+        Matrix result=new Matrix(3,1);
+        result.data[0][0]=this.data[1][0]*a.data[2][0]-this.data[2][0]*a.data[1][0];
+        result.data[1][0]=this.data[2][0]*a.data[0][0]-this.data[0][0]*a.data[2][0];
+        result.data[2][0]=this.data[0][0]*a.data[1][0]-this.data[1][0]*a.data[0][0];
+        
+        return result;
+        
+    }
+    
      /**
      * Returns the QR decomposition of a matrix.
      * The algorithm uses the Gram-Schmidt method
